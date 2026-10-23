@@ -4,40 +4,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- displays site properly based on user's device -->
-
   <link rel="icon" type="image/png" sizes="32x32" href="./resources/images/favicon-32x32.png" />
 
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./resources/style.css">
   <title>Base Apparel coming soon page</title>
 </head>
 
 <body>
-  <main class="main-container">
-    <!-- NAV BAR -->
-    <nav>
-      <ul>
-        <li>Base apparel</li>
-      </ul>
-    </nav>
+  <div class="container">
+    <!-- HEADER -->
+     <header class="header">
+          <img 
+            class="logo"
+            src="./resources/images/logo.svg"
+          />
+      </header>
 
     <!-- HERO IMG -->
-    <div>
-      <!-- MAKES IT BLOCK LEVEL-->
-      <img src="./resources/images/hero-mobile.jpg" alt="" />
-    </div>
+    <picture class="hero">
+      <source
+        media="(min-width: 712px)"
+        srcset="resources/images/hero-desktop.jpg"
+      />
+      <img 
+        src="./resources/images/hero-mobile.jpg" 
+        alt="Model wearing Base Apparel clothing" 
+      />
+    </picture>
 
-    <!-- BOTTOM SECTION -->
-    <div>
-      <div>
-        <h1>We're coming soon</h1>
+    <!-- BOTTOM/MAIN SECTION -->
+    <main class="content">
+      <div class="bottom-text">
+        <h1><span>We're</span> coming soon</h1>
         <p>
           Hello fellow shoppers! We're currently building our new fashion
           store. Add your email below to stay up-to-date with announcements
           and our launch deals.
         </p>
       </div>
-      <input type="email" placeholder="Email Address" />
-    </div>
-  </main>
+
+      <form class="email-form">
+        <input 
+          type="email" 
+          name="email"
+          placeholder="Email Address"
+          aria-label="Email Address"
+          required
+        />   
+
+        <button type="submit" aria-label="Submit email">
+          <img src="./resources/images/icon-arrow.svg" alt="">
+        </button>
+
+      </form>
+    </main>
+  </div>
+
+  
 </body>
 </html>
