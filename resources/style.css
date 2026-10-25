@@ -1,3 +1,8 @@
+
+/* =========================
+   CSS RESET
+========================= */
+
 *,
 *::before,
 *::after {
@@ -9,7 +14,7 @@
 body {
   min-height: 100vh;
   line-height: 1.5;
-  font-family: system-ui, sans-serif;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 img,
@@ -40,6 +45,10 @@ p {
   overflow-wrap: break-word;
 }
 
+/* =========================
+   CSS VARIABLES
+========================= */
+
 :root {
   /* PRIMARY */
   --pink: hsla(0, 36%, 70%, 0.779);
@@ -52,22 +61,25 @@ p {
     hsl(0, 0%, 100%),
     hsl(0, 100%, 98%)
   );
-  --gradient-pink: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+
+  --gradient-pink: linear-gradient(
+    135deg,
+    hsl(0, 80%, 86%),
+    hsl(0, 74%, 74%)
+  );
 
   --white: #fff;
   --black: #000;
 }
 
-/* BODY */
-body {
-  min-height: 100vh;
-  font-family: "Josefin Sans", sans-serif;
-}
+/* =========================
+   MAIN CONTAINER
+========================= */
 
-/* CONTROLS ALL SECTIONS */
 .container {
   width: 100%;
   min-height: 100vh;
+
   display: grid;
   grid-template-areas:
     "header"
@@ -76,6 +88,10 @@ body {
 
   background: var(--gradient-light);
 }
+
+/* =========================
+   HEADER
+========================= */
 
 .header {
   grid-area: header;
@@ -86,6 +102,10 @@ body {
   width: 110px;
 }
 
+/* =========================
+   HERO IMAGE
+========================= */
+
 .hero {
   grid-area: hero;
   width: 100%;
@@ -93,13 +113,16 @@ body {
 
 .hero img {
   width: 100%;
-  height: autos;
-  display: block;
+  height: auto;
 }
 
-/* BOTTOM SECTION */
+/* =========================
+   CONTENT SECTION
+========================= */
+
 .content {
   grid-area: content;
+
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -117,6 +140,10 @@ body {
 
   text-align: center;
 }
+
+/* =========================
+   TYPOGRAPHY
+========================= */
 
 h1 {
   font-size: clamp(2.4rem, 2.6rem, 6vh);
@@ -136,19 +163,35 @@ p {
   color: var(--pink);
 }
 
-/* INPUT SECTION */
+/* =========================
+   EMAIL FORM
+========================= */
+
 .email-form {
   width: 100%;
   max-width: 28rem;
   margin-inline: auto;
+
+  position: relative;
+
+  /* border: 2px solid blue; */
+}
+
+/* INPUT WRAPPER */
+
+.input-wrapper {
   position: relative;
 }
 
+/* INPUT FIELD */
+
 .email-form input {
   width: 100%;
-  padding: 1rem 6rem 1rem 1.5rem;
+  padding: 1rem 8rem 1rem 1.5rem;
+
   border: 1px solid var(--pink);
   border-radius: 999px;
+
   background: transparent;
   outline-offset: 3px;
 }
@@ -156,6 +199,8 @@ p {
 input::placeholder {
   color: var(--pink);
 }
+
+/* SUBMIT BUTTON */
 
 .email-form button {
   position: absolute;
@@ -167,22 +212,69 @@ input::placeholder {
 
   border: none;
   border-radius: 999px;
+
   background: var(--gradient-pink);
 
   display: grid;
   place-items: center;
+
   box-shadow: 0 8px 20px hsla(0, 36%, 70%, 0.3);
 }
 
-/* MEDIA QUERIES */
+/* =========================
+   FORM VALIDATION
+========================= */
+
+/* ERROR MESSAGE */
+
+.alert {
+  padding-left: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--red);
+}
+
+/* ERROR ICON */
+
+.error-icon {
+  display: none;
+
+  position: absolute;
+  right: 5.5rem;
+  top: 50%;
+
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* SHOW ICON ON ERROR */
+
+.input-wrapper.has-error .error-icon {
+  display: block;
+}
+
+/* ERROR INPUT BORDER */
+
+.input-wrapper.has-error input {
+  border: 2px solid var(--red);
+}
+
+/* =========================
+   DESKTOP MEDIA QUERY
+========================= */
+
 @media (min-width: 712px) {
+
   .container {
     grid-template-columns: 2fr 1.5fr;
     grid-template-rows: auto 1fr;
+
     grid-template-areas:
       "header hero"
       "content hero";
+
     --content-padding: clamp(2rem, 10vw, 11rem);
+
     overflow: hidden;
 
     background-image: url("images/bg-pattern-desktop.svg");
@@ -204,17 +296,20 @@ input::placeholder {
   .hero img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
     overflow: hidden;
   }
 
   .content {
     padding: 3rem var(--content-padding);
+
     justify-content: center;
     gap: 2.5rem;
 
     background-image: url("images/bg-pattern-desktop.svg");
     background-size: cover;
+
     overflow: hidden;
   }
 

@@ -48,15 +48,17 @@
         </p>
       </div>
 
-      <form class="email-form">
-        <input 
-          type="email" 
-          name="email"
-          placeholder="Email Address"
-          aria-label="Email Address"
-          required
-        />   
-
+      <form class="email-form" novalidate>
+        <div class="input-wrapper">
+          <input 
+            type="email" 
+            name="email"
+            placeholder="Email Address"
+            aria-label="Email Address"
+            required
+          />   
+        </div>
+        
         <button type="submit" aria-label="Submit email">
           <img src="./resources/images/icon-arrow.svg" alt="">
         </button>
@@ -65,6 +67,6 @@
     </main>
   </div>
 
-  
+<script src="./script.js"></script>  
 </body>
 </html>
