@@ -1,8 +1,8 @@
 const input = document.querySelector("input");
 const form = document.querySelector(".email-form");
 const wrapper = document.querySelector(".input-wrapper");
+const message = document.querySelector(".alert");
 
-const message = document.createElement("p");
 const iconError = document.createElement("img");
 
 // Image path relative to the HTML document
@@ -34,4 +34,10 @@ form.addEventListener("submit", (event) => {
   if (!message.isConnected) {
     form.insertAdjacentElement("afterend", message);
   }
+});
+
+input.addEventListener("input", () => {
+  wrapper.classList.remove("has-error");
+  input.removeAttribute("aria-invalid");
+  message.textContent = "";
 });
