@@ -1,4 +1,4 @@
-# FAQ accordion| Frontend Mentor Challenge
+# Base Apparel coming soon page| Frontend Mentor Challenge
 
 This challenge is part of my journey to master responsive design with HTML, CSS & JavaScript
 
